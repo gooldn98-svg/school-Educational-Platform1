@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أفق التعليمية - تسجيل الدخول</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --primary: #176b62;
+      --primary-dark: #0e514b;
+      --mint: #e8f5f1;
+      --gold: #e9b949;
+      --ink: #172b35;
+      --muted: #71808a;
+      --line: #e6eceb;
+      --bg: #f6f9f8;
+      --white: #fff;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--ink);
+      font-family: Cairo, Tahoma, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-container {
+      width: 100%;
+      max-width: 420px;
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .login-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .brand-large {
+      width: 70px;
+      height: 70px;
+      background: var(--mint);
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0 auto 16px;
+    }
+    .login-header h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      color: var(--ink);
+    }
+    .login-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--ink);
+      font-size: 13px;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--ink);
+      outline: none;
+      transition: 0.2s;
+    }
+    input:focus, select:focus {
+      border-color: var(--primary);
+      background: var(--mint);
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      font-size: 13px;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: auto;
+      margin-left: 6px;
+    }
+    .forgot-link {
+      color: var(--primary);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-bottom: 16px;
+    }
+    .submit-btn:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 8px 20px rgba(23,107,98,0.3);
+    }
+    .signup-link {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .signup-link a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .error {
+      color: #c86b6b;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+    .demo-accounts {
+      background: var(--mint);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--primary);
+    }
+    .demo-accounts strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+    .demo-account {
+      margin: 6px 0;
+      font-family: monospace;
+    }
+    @media (max-width: 520px) {
+      .login-container {
+        padding: 24px;
+        margin: 20px;
+      }
+      .login-header {
+        margin-bottom: 32px;
+      }
+      .brand-large {
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+      }
+      .login-header h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-header">
+      <div class="brand-large">أ</div>
+      <h1>أفق التعليمية</h1>
+      <p>منصة التعليم الإلكترونية الذكية</p>
+    </div>
+    
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label for="role">تحديد الدور</label>
+        <select id="role" required>
+          <option value="">-- اختر دورك --</option>
+          <option value="admin">المدير التعليمي</option>
+          <option value="teacher">المعلم</option>
+          <option value="student">الطالب</option>
+          <option value="parent">ولي الأمر</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="username">اسم المستخدم أو البريد الإلكتروني</label>
+        <input type="text" id="username" placeholder="أدخل اسم المستخدم" required>
+        <div class="error" id="usernameError">اسم المستخدم مطلوب</div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">كلمة المرور</label>
+        <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+        <div class="error" id="passwordError">كلمة المرور مطلوبة</div>
+      </div>
+
+      <div class="checkbox-group">
+        <label style="margin:0;display:flex;align-items:center;">
+          <input type="checkbox" id="remember"> تذكرني
+        </label>
+        <a href="#" class="forgot-link" onclick="alert('سيتم إرسال رابط استعادة كلمة المرور إلى بريدك'); return false;">هل نسيت كلمة المرور؟</a>
+      </div>
+
+      <button type="submit" class="submit-btn">تسجيل الدخول</button>
+    </form>
+
+    <div class="signup-link">
+      ليس لديك حساب؟ <a href="#" onclick="alert('يرجى التواصل مع إدارة المدرسة'); return false;">طلب حساب جديد</a>
+    </div>
+
+    <div class="demo-accounts">
+      <strong>🔐 حسابات توضيحية:</strong>
+      <div class="demo-account">المدير: admin / 123456</div>
+      <div class="demo-account">معلم: teacher / 123456</div>
+      <div class="demo-account">طالب: student / 123456</div>
+      <div class="demo-account">ولي أمر: parent / 123456</div>
+    </div>
+  </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      
+      const role = document.getElementById('role').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const remember = document.getElementById('remember').checked;
+
+      if (!role || !username || !password) {
+        alert('الرجاء ملء جميع الحقول المطلوبة');
+        return;
+      }
+
+      // التحقق البسيط
+      if (password === '123456') {
+        // حفظ بيانات الجلسة
+        const userData = {
+          username,
+          role,
+          loginTime: new Date().toISOString(),
+          name: getNameByRole(role, username)
+        };
+
+        localStorage.setItem('user', JSON.stringify(userData));
+        if (remember) {
+          localStorage.setItem('remember', 'true');
+        }
+
+        // التوجيه للصفحة المناسبة
+        const dashboardPath = role === 'teacher' ? 'dashboard-teacher.html' : 
+                            role === 'student' ? 'dashboard-student.html' :
+                            role === 'parent' ? 'dashboard-parent.html' : 'dashboard-admin.html';
+        
+        window.location.href = dashboardPath;
+      } else {
+        alert('بيانات تسجيل الدخول غير صحيحة');
+      }
+    }
+
+    function getNameByRole(role, username) {
+      const names = {
+        admin: 'محمد العريقي',
+        teacher: 'أ. فاطمة الزهراء',
+        student: 'أحمد محمد علي',
+        parent: 'الحاج علي محمد'
+      };
+      return names[role] || username;
+    }
+
+    // التحقق من الجلسة السابقة
+    window.addEventListener('load', () => {
+      const userData = localStorage.getItem('user');
+      const remember = localStorage.getItem('remember');
+      
+      if (userData && remember === 'true') {
+        const user = JSON.parse(userData);
+        document.getElementById('username').value = user.username;
+        document.getElementById('role').value = user.role;
+        document.getElementById('remember').checked = true;
+      }
+    });
+  </script>
+</body>
+</html>

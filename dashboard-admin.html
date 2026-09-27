@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة المدير - أفق التعليمية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">أ</span><div><strong>أفق</strong><small>لوحة المدير</small></div></div>
+      <div class="profile-mini" id="profileMini">
+        <div class="avatar">م</div>
+        <div><strong id="userNameDisplay">محمد</strong><small>مدير المدرسة</small></div>
+        <span class="online"></span>
+      </div>
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <p class="nav-label">الإدارة</p>
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span>لوحة التحكم</button>
+        <button class="nav-item" data-view="students"><span>♙</span>إدارة الطلاب</button>
+        <button class="nav-item" data-view="teachers"><span>♗</span>إدارة المعلمين</button>
+        <button class="nav-item" data-view="parents"><span>👥</span>أولياء الأمور</button>
+        <p class="nav-label">التعليم</p>
+        <button class="nav-item" data-view="classes"><span>▦</span>الصفوف والفصول</button>
+        <button class="nav-item" data-view="curriculum"><span>▤</span>المناهج والمواد</button>
+        <button class="nav-item" data-view="schedule"><span>🗓</span>الجدول الدراسي</button>
+        <p class="nav-label">التقارير والتحليل</p>
+        <button class="nav-item" data-view="reports"><span>▥</span>التقارير</button>
+        <button class="nav-item" data-view="analytics"><span>📊</span>التحليلات</button>
+        <button class="nav-item" data-view="attendance"><span>✓</span>الحضور والغياب</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item"><span>⚙</span>الإعدادات</button>
+        <button class="nav-item logout" onclick="logout()"><span>↩</span>تسجيل الخروج</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-button menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+        <div class="breadcrumb">
+          <span>إدارة ا��مدرسة</span><b>/</b><strong id="pageTitle">لوحة التحكم</strong>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" onclick="alert('البحث قيد التطوير')">⌕</button>
+          <button class="notification" onclick="alert('3 تنبيهات جديدة')">⟲<i>3</i></button>
+          <div class="top-avatar" onclick="toggleProfileMenu()">م</div>
+          <div class="profile-dropdown" id="profileDropdown" style="display:none;position:absolute;top:70px;left:20px;background:white;border:1px solid #e6eceb;border-radius:10px;min-width:200px;z-index:10;box-shadow:0 4px 12px rgba(0,0,0,0.1)">
+            <div style="padding:12px;border-bottom:1px solid #e6eceb"><strong id="dropdownName">محمد العريقي</strong><br><small style="color:#71808a">مدير المدرسة</small></div>
+            <button style="width:100%;text-align:right;padding:10px;border:0;background:none;cursor:pointer;font-family:inherit;color:#176b62" onclick="alert('ستفتح صفحة الإعدادات قريباً')">⚙ الإعدادات الشخصية</button>
+            <button style="width:100%;text-align:right;padding:10px;border:0;background:none;cursor:pointer;font-family:inherit;color:#176b62;border-top:1px solid #e6eceb" onclick="logout()">↩ تسجيل الخروج</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="page" id="app"></div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast">تم تنفيذ العملية بنجاح</div>
+
+  <script src="dashboard-admin.js"></script>
+</body>
+</html>
